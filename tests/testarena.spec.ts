@@ -1,5 +1,8 @@
 import { expect, test } from '@playwright/test';
 const { describe } = test;
+const setPasswordSecretly = (input: HTMLInputElement, password: string) => {
+    input.value = password;
+}
 
 describe('test arena specification', () => {
     test('should login to app', async ({ page }) => {
@@ -8,7 +11,7 @@ describe('test arena specification', () => {
         await page.goto('/zaloguj');
 
         await page.getByRole('textbox', { name: 'Adres e-mail' }).fill(user);
-        await page.getByRole('textbox', { name: 'Hasło' }).fill(password);
+        await page.getByRole('textbox', { name: 'Hasło' }).evaluate(setPasswordSecretly, password);
         await page.getByRole('button', { name: 'Zaloguj' }).click();
 
         await expect(page).toHaveURL('/');
@@ -21,7 +24,7 @@ describe('test arena specification', () => {
         const password = process.env.DEFAULT_PASSWORD!;
         await page.goto('/zaloguj');
         await page.getByRole('textbox', { name: 'Adres e-mail' }).fill(user);
-        await page.getByRole('textbox', { name: 'Hasło' }).fill(password);
+        await page.getByRole('textbox', { name: 'Hasło' }).evaluate(setPasswordSecretly, password);
         await page.getByRole('button', { name: 'Zaloguj' }).click();
         await page.waitForSelector('#header_logo');
 
