@@ -1,8 +1,6 @@
 import { expect, test } from '@playwright/test';
+import { setPasswordSecretly } from '../utils';
 const { describe } = test;
-const setPasswordSecretly = (input: HTMLInputElement, password: string) => {
-    input.value = password;
-}
 
 describe('test arena specification', () => {
     test('should login to app', async ({ page }) => {
