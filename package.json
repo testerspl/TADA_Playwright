@@ -4,13 +4,17 @@
   "description": "Playwright TADA",
   "main": "index.js",
   "scripts": {
-    "test-example": "npx playwright test tests/example.spec.ts --project=chromium --trace on",
-    "codegen-example":"npx playwright codegen http://demo.testarena.pl/zaloguj"
+    "test-example": "npx playwright test tests/example.spec.ts --project=chromium --trace on --ui",
+    "codegen-example": "npx playwright codegen http://demo.testarena.pl/zaloguj"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.55.0",
     "@types/node": "^24.3.1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "playwright": "^1.55.0"
   }
 }
