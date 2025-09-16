@@ -13,8 +13,8 @@ export default class BasePage {
 		await this.page.goto(this.url);
 	}
 
-	async assertElementText(selector: string, textToHave: string): Promise<void> {
-		expect(this.page.locator(selector)).toHaveText(textToHave);
+	async assertPageUrl(): Promise<void> {
+		await expect(this.page).toHaveURL(this.url);
 	}
 
 	randomString(len: number, type: string) {
