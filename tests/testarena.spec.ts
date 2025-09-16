@@ -20,7 +20,7 @@ describe('test arena specification', () => {
     });
 
     test('should logout from app', async ({ page }) => {
-        mainPage.logout();
+        await mainPage.logout();
 
         await loginPage.assertLoginPage();
     });

@@ -12,9 +12,9 @@ export default class MainPage extends BasePage {
         super('/', page);
     }
 
-    logout() {
-        this.logoutButton.click();
-        this.page.locator(loginPageSelectors.LOGIN_FORM).waitFor();
+    async logout() : Promise<void> {
+        await this.logoutButton.click();
+        await this.page.locator(loginPageSelectors.LOGIN_FORM).waitFor();
     }
 
     async assertMainPage(user: string | null): Promise<void> {
