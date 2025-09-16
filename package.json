@@ -1,7 +1,7 @@
 {
-  "name": "tada_playwright",
+  "name": "playwright_tada",
   "version": "0.0.1",
-  "description": "TADA_Playwright project",
+  "description": "Playwright TADA",
   "main": "index.js",
   "scripts": {
     "test-example": "npx playwright test tests/example.spec.ts --project=chromium --trace on",

@@ -1,3 +1,3 @@
-# TADA_Playwright
+# Playwright TADA
 
-TADA_Playwright project
+Playwright TADA
