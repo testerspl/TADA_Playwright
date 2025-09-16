@@ -1,27 +1,24 @@
-import { expect, test } from '@playwright/test';
+import { test } from '@playwright/test';
+import { pagesTest } from '../fixtures/pagesFixture';
 import LoginPage from '../pages/loginPage/loginPage';
-import MainPage from '../pages/mainPage/mainPage';
 const { describe, beforeEach } = test;
 const [user, password] = [process.env.DEFAULT_USER!, process.env.DEFAULT_PASSWORD!];
-let loginPage: LoginPage, mainPage: MainPage;
 
 describe('test arena specification', () => {
     beforeEach(async ({ page }) => {
-        loginPage = new LoginPage(page);
+        const loginPage = new LoginPage(page);
 
         await loginPage.gotoPage();
         await loginPage.login(user, password);
-
-        mainPage = new MainPage(page);
     });
 
-    test('should login to app', async ({ page }) => {
-        await mainPage.assertMainPage(user);
+    pagesTest('should login to app', async ({ getMainPage }) => {
+        await getMainPage().assertMainPage(user);
     });
 
-    test('should logout from app', async ({ page }) => {
-        await mainPage.logout();
+    pagesTest('should logout from app', async ({ getMainPage, getLoginPage }) => {
+        await getMainPage().logout();
 
-        await loginPage.assertLoginPage();
+        await getLoginPage().assertLoginPage();
     });
 });
