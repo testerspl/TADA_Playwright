@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test-example": "npx playwright test tests/example.spec.ts --project=chromium --trace on --ui",
+    "test-arena": "npx playwright test tests/testarena.spec.ts --project=chromium --trace on --ui",
     "codegen-example": "npx playwright codegen http://demo.testarena.pl/zaloguj"
   },
   "author": "",
